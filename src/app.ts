@@ -1,8 +1,8 @@
-import { App } from 'jovo-framework';
-import { Alexa } from 'jovo-platform-alexa';
-import { JovoDebugger } from 'jovo-plugin-debugger';
-import { FileDb } from 'jovo-db-filedb';
-import { GoogleAssistant } from 'jovo-platform-googleassistant';
+import { App } from "jovo-framework";
+import { Alexa } from "jovo-platform-alexa";
+import { JovoDebugger } from "jovo-plugin-debugger";
+import { FileDb } from "jovo-db-filedb";
+import { GoogleAssistant } from "jovo-platform-googleassistant";
 
 // ------------------------------------------------------------------
 // APP INITIALIZATION
@@ -10,28 +10,27 @@ import { GoogleAssistant } from 'jovo-platform-googleassistant';
 
 const app = new App();
 
-app.use(
-    new Alexa(),
-    new GoogleAssistant(),
-    new JovoDebugger(),
-    new FileDb(),
-);
-
+app.use(new Alexa(), new GoogleAssistant(), new JovoDebugger(), new FileDb());
 
 // ------------------------------------------------------------------
 // APP LOGIC
 // ------------------------------------------------------------------
 
 app.setHandler({
+  LAUNCH() {
+    return this.toIntent("HelloWorldIntent");
+  },
 
-    LAUNCH() {
-        return this.toIntent('HelloWorldIntent');
-    },
+  HelloWorldIntent() {
+    this.ask(
+      `Welcom to Open Door Game! What's your name?`,
+      "Please tell me your name."
+    );
+  },
 
-    HelloWorldIntent() {
-        this.ask(`Hello World! What's your name?`, 'Please tell me your name.');
-    }
-
+  MyNameIsIntent() {
+    this.tell(`Hi, ${this.$inputs.name.value} nice to meet you.`);
+  }
 });
 
 export { app };
