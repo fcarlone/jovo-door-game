@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [![Jovo Framework](https://www.jovo.tech/img/github-logo.png)](https://www.jovo.tech)
 
 <p align="center">Templates for the <a href="https://github.com/jovotech/jovo-framework-nodejs">Jovo Framework</a> ⭐️</p>
@@ -90,3 +91,8 @@ Jovo build -t model -p alexaSkill
 npm run deploy.model
 
 npm start
+||||||| merged common ancestors
+=======
+# jovo-door-game
+Demo Jovo - A Framework for Voice App Development
+>>>>>>> 3ca6f56fbf6aedc50b8cbfa099dfc1991eedc9bd
